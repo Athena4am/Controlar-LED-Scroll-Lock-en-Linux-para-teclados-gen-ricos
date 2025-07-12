@@ -28,7 +28,8 @@ sudo pacman -S brightnessctl
 
 ```bash
 brightnessctl -l
-Busca algo similar a input7::scrolllock.
+
+#Busca algo similar a input7::scrolllock.
 
 3. Encender el LED manualmente:
 
