@@ -23,3 +23,19 @@ Usar [`brightnessctl`](https://github.com/Hummer12007/brightnessctl) para contro
 
 ```bash
 sudo pacman -S brightnessctl
+
+2. Identificar el dispositivo LED Scroll Lock:
+
+bash
+brightnessctl -l
+Busca algo similar a input7::scrolllock.
+
+3. Encender el LED manualmente:
+
+'''bash
+brightnessctl -d input7::scrolllock s 1
+
+4. Apagar el LED manualmente:
+
+'''bash
+brightnessctl -d input7::scrolllock s 0
