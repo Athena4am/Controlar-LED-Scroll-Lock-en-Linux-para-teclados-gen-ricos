@@ -1,42 +1,21 @@
 # Controlar LED Scroll Lock en Linux para teclados genéricos
 
-Este repositorio ayuda a usuarios con teclados genéricos que solo tienen un LED funcional (Scroll Lock) y que no pueden controlar las luces desde el entorno gráfico o TTY usando métodos tradicionales como `setleds`.
+Este repositorio ayuda a quienes usan teclados genéricos con un solo LED funcional (Scroll Lock) en Linux, y tienen problemas para encenderlo o apagarlo desde el entorno gráfico o terminal.
 
 ---
 
-## Problema común
+## Problemas comunes
 
-- Solo el LED de **Scroll Lock** funciona físicamente.
-- El LED de Scroll Lock puede bloquear la terminal en TTY, haciendo que no se muestre lo que escribes.
-- Los comandos tradicionales (`setleds`, `xset`) no funcionan bien en entornos gráficos modernos (Wayland/X11).
+- Solo el LED de **Scroll Lock** funciona.
+- Los métodos tradicionales (`setleds`, `xset`) no funcionan bien en Wayland/X11.
 - El LED se apaga al salir de la consola TTY.
+- Scroll Lock en TTY puede bloquear la salida de la terminal.
 
 ---
 
-## Solución efectiva
+## Solución con `brightnessctl`
 
-Usar [`brightnessctl`](https://github.com/Hummer12007/brightnessctl) para controlar directamente el LED físico desde `/sys/class/leds`.
-
-### Pasos
-
-1. Instalar `brightnessctl`:
+### 1. Instala `brightnessctl`
 
 ```bash
 sudo pacman -S brightnessctl
-
-2. Identificar el dispositivo LED Scroll Lock:
-
-```bash
-brightnessctl -l
-
-#Busca algo similar a input7::scrolllock.
-
-3. Encender el LED manualmente:
-
-```bash
-brightnessctl -d input7::scrolllock s 1
-
-4. Apagar el LED manualmente:
-
-```bash
-brightnessctl -d input7::scrolllock s 0
