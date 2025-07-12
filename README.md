@@ -26,16 +26,16 @@ sudo pacman -S brightnessctl
 
 2. Identificar el dispositivo LED Scroll Lock:
 
-bash
+```bash
 brightnessctl -l
 Busca algo similar a input7::scrolllock.
 
 3. Encender el LED manualmente:
 
-'''bash
+```bash
 brightnessctl -d input7::scrolllock s 1
 
 4. Apagar el LED manualmente:
 
-'''bash
+```bash
 brightnessctl -d input7::scrolllock s 0
